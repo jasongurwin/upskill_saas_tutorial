@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 class Users::RegistrationsController < Devise::RegistrationsController
-=======
-class Users::RegistrationsControllers < Devise::RegistrationsControllers
->>>>>>> 91d5625eb435cbcb559e16aba889bcc5422cee7c
   def create
     super do |resource|
       if params[:plan]
