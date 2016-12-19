@@ -15,3 +15,4 @@ class User < ApplicationRecord
       save!
     end
   end
+end
