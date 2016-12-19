@@ -18,33 +18,35 @@ $(document).on('turbolinks:load', function(){
     
     
     //collect the credit fields
-    var ccNum = $('#cardNumber').val(),
+    var ccNum = $('#card_number').val(),
         cvcNum=$('#card_code').val(),
         expMonth=$('#card_month').val(),
         expYear=$('#card_year').val();
+        
         
     //Use Stripe JS library to check for card errors.
     
     var error = false;
     
+
     //Validate card number
     if(!Stripe.card.validateCardNumber(ccNum)){
-        error=true
-        alert('The credit card number appears to be invalid.')
-    };
+        error=true;
+        alert('The credit card number appears to be invalid.');
+    }
     
     
-     //Validate cvc number
+    //Validate cvc number
     if(!Stripe.card.validateCVC(cvcNum)){
-        error=true
-        alert('The CVC number appears to be invalid.')
-    };
+        error=true;
+        alert('The CVC number appears to be invalid.');
+    }
     
       //Validate expiration date
     if(!Stripe.card.validateExpiry(expMonth,expYear)){
-        error=true
-        alert('The expiration date appears to be invalid.')
-    };
+        error=true;
+        alert('The expiration date appears to be invalid.');
+    }
 
     if (error) {
       //If there are card errors, don't send to Stripe
@@ -62,8 +64,7 @@ $(document).on('turbolinks:load', function(){
       },stripeResponseHandler);
     }
     
-    
-
+  
     return false;
     
   });
